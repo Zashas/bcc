@@ -356,6 +356,18 @@ static int (*bpf_xdp_adjust_tail)(void *ctx, int offset) =
   (void *) BPF_FUNC_xdp_adjust_tail;
 static int (*bpf_skb_get_xfrm_state)(void *ctx, u32 index, void *xfrm_state, u32 size, u64 flags) =
   (void *) BPF_FUNC_skb_get_xfrm_state;
+static int (*bpf_lwt_push_encap)(void *ctx, int type, void *hdr, int len) =
+  (void *) BPF_FUNC_lwt_push_encap;
+static int (*bpf_lwt_seg6_store_bytes)(void *ctx, int offset, const void *from, int len) =
+  (void *) BPF_FUNC_lwt_seg6_store_bytes;
+static int (*bpf_lwt_seg6_action)(void *ctx, int action, void *param, int param_len) =
+  (void *) BPF_FUNC_lwt_seg6_action;
+static int (*bpf_lwt_seg6_adjust_srh)(void *ctx, int offset, int len) =
+  (void *) BPF_FUNC_lwt_seg6_adjust_srh;
+static int (*bpf_ipv6_fib_multipath_nh)(void *ctx, void *dst, int dst_len, void *buf, int buf_len) =
+  (void *) BPF_FUNC_ipv6_fib_multipath_nh;
+
+
 
 /* llvm builtin functions that eBPF C program may use to
  * emit BPF_LD_ABS and BPF_LD_IND instructions
