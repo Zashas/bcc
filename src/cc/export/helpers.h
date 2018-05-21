@@ -366,7 +366,10 @@ static int (*bpf_lwt_seg6_adjust_srh)(void *ctx, int offset, int len) =
   (void *) BPF_FUNC_lwt_seg6_adjust_srh;
 static int (*bpf_ipv6_fib_multipath_nh)(void *ctx, void *dst, int dst_len, void *buf, int buf_len) =
   (void *) BPF_FUNC_ipv6_fib_multipath_nh;
-
+static u64 (*bpf_ktime_get_real_ns)(void) =
+  (void *) BPF_FUNC_ktime_get_real_ns;
+static u64 (*bpf_skb_get_tstamp)(void *ctx) =
+  (void *) BPF_FUNC_skb_get_tstamp;
 
 
 /* llvm builtin functions that eBPF C program may use to
